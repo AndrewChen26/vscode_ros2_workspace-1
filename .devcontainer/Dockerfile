@@ -15,3 +15,5 @@ FROM althack/ros2:humble-dev
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
+# Limit the number of corse used for build tasks to 4
+RUN echo "export MAKEFLAGS='-j 4'" >> /home/ros/.bashrc 

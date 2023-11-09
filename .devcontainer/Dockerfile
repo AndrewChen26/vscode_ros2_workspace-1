@@ -12,6 +12,11 @@ FROM althack/ros2:humble-cuda-dev
 #    && rm -rf /var/lib/apt/lists/*
 # ENV DEBIAN_FRONTEND=dialog
 
+# Create run dir for default user with id 1000
+RUN mkdir /run/user/1000
+RUN chown ros:ros /run/user/1000
+RUN chmod 0700 /run/user/1000
+
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc

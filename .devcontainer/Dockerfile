@@ -22,4 +22,4 @@ RUN chmod 0700 /run/user/1000
 ARG WORKSPACE
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
 # Limit the number of corse used for build tasks to 4
-RUN echo "export MAKEFLAGS='-j 4'" >> /home/ros/.bashrc 
+RUN echo "export MAKEFLAGS='-j 6'" >> /home/ros/.bashrc 

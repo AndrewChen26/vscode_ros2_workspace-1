@@ -4,7 +4,7 @@
 # Example:
 ############
 repositories:
-  examples:
+  turtlebot3:
     type: git
-    url: https://github.com/ros2/ros_tutorials.git
-    version: humble
+    url: https://github.com/SESASR-Course/turtlebot3.git
+    version: humble-remote-pc

@@ -4,8 +4,7 @@ FROM althack/ros2:humble-full
 #
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
-   && apt-get -y install --no-install-recommends iproute2 \
-   ros-humble-turtlebot3-navigation2 ros-humble-turtlebot3-teleop \
+   && apt-get -y install --no-install-recommends iproute2 iputils-* \
    # Clean up
    && apt-get autoremove -y \
    && apt-get clean -y \

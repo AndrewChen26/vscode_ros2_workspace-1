@@ -1,5 +1,5 @@
 {
-    "editor.tabSize": 8,
+    "editor.tabSize": 4,
     "editor.rulers": [
         100
     ],
@@ -8,6 +8,7 @@
         "*.world": "xml",
         "*.xacro": "xml"
     },
+    "git.repositoryScanMaxDepth": 5,
     "python.analysis.extraPaths": [
         "/opt/ros/humble/lib/python3.10/site-packages/"
     ],

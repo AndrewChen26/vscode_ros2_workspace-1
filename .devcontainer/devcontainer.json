@@ -13,10 +13,7 @@
 		"--security-opt=seccomp:unconfined",
 		"--security-opt=apparmor:unconfined",
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
-		"--volume=/mnt/wslg:/mnt/wslg",
 		"--ipc=host"
-		// uncomment to use intel iGPU
-		// "--device=/dev/dri"
 	],
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows
@@ -27,7 +24,7 @@
 		"TURTLEBOT3_MODEL": "burger",
 		"ROS_DOMAIN_ID": "10",
 		"RMW_IMPLEMENTATION": "rmw_fastrtps_cpp",
-		"ROS_DISCOVERY_SERVER": "192.168.0.198:11811",
+		"ROS_DISCOVERY_SERVER": "192.168.0.189:11811;127.0.0.1:11812",
 		"FASTRTPS_DEFAULT_PROFILES_FILE": "${containerWorkspaceFolder}/super_client_configuration_file.xml"
 	},
 	// Set *default* container specific settings.json values on container create.
@@ -49,5 +46,6 @@
 				"zachflower.uncrustify"
 			]
 		}
-	}
+	},
+	"postStartCommand": "fastdds discovery -i 1 -p 11812"
 }

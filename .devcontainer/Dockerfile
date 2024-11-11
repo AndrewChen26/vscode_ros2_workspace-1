@@ -1,16 +1,17 @@
-FROM althack/ros2:humble-cuda-dev 
+FROM althack/ros2:humble-cuda-gazebo-nvidia
 
 # ** [Optional] Uncomment this section to install additional packages. **
 #
-# ENV DEBIAN_FRONTEND=noninteractive
-# RUN apt-get update \
-#    && apt-get -y install --no-install-recommends <your-package-list-here> \
-#    #
-#    # Clean up
-#    && apt-get autoremove -y \
-#    && apt-get clean -y \
-#    && rm -rf /var/lib/apt/lists/*
-# ENV DEBIAN_FRONTEND=dialog
+ENV DEBIAN_FRONTEND=noninteractive
+RUN add-apt-repository ppa:openrobotics/gazebo11-gz-cli
+RUN apt-get update \
+   && apt-get -y install --no-install-recommends gazebo11 \
+   #
+   # Clean up
+   && apt-get autoremove -y \
+   && apt-get clean -y \
+   && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=dialog
 
 # Create run dir for default user with id 1000
 RUN mkdir /run/user/1000
@@ -27,18 +28,18 @@ RUN echo "export MAKEFLAGS='-j 6'" >> /home/ros/.bashrc
 # Expose the nvidia driver to allow opengl 
 # Dependencies for glvnd and X11.
 ################
-# RUN apt-get update \
-#  && apt-get install -y -qq --no-install-recommends \
-#   libglvnd0 \
-#   libgl1 \
-#   libglx0 \
-#   libegl1 \
-#   libxext6 \
-#   libx11-6 \
-# && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+ && apt-get install -y -qq --no-install-recommends \
+  libglvnd0 \
+  libgl1 \
+  libglx0 \
+  libegl1 \
+  libxext6 \
+  libx11-6 \
+&& rm -rf /var/lib/apt/lists/*
 
 # Env vars for the nvidia-container-runtime.
-#ENV NVIDIA_VISIBLE_DEVICES all
-#ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
 #ENV QT_X11_NO_MITSHM=1

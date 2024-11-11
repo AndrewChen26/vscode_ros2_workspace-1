@@ -1,5 +1,6 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
+	"name": "ros2_gazebo_nvidia_on_wsl2",
 	"dockerFile": "Dockerfile",
 	"build": {
 		"args": {

@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN add-apt-repository ppa:openrobotics/gazebo11-gz-cli
 RUN apt-get update \
    && apt-get -y install --no-install-recommends gazebo11 \
+   ros-humble-joint-state-publisher-gui \
    #
    # Clean up
    && apt-get autoremove -y \

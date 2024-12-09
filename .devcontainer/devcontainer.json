@@ -4,7 +4,7 @@
 	"dockerFile": "Dockerfile",
 	"build": {
 		"args": {
-			"WORKSPACE": "${containerWorkspaceFolder}"
+			"WORKSPACE": "${containerWorkspaceFolder}" // This is where we mount the current directory open in VS Code to the devcontainer.
 		}
 	},
 	"remoteUser": "ros",

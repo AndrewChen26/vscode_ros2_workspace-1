@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN add-apt-repository ppa:openrobotics/gazebo11-gz-cli
 RUN apt-get update \
    && apt-get -y install --no-install-recommends gazebo11 \
+   ros-humble-joint-state-publisher-gui \
    #
    # Clean up
    && apt-get autoremove -y \
@@ -23,6 +24,7 @@ ARG WORKSPACE
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
 RUN echo "export MAKEFLAGS='-j 6'" >> /home/ros/.bashrc
 
+# WORKDIR ${WORKSPACE}
 ################
 # uncomment below for nvidia support
 # Expose the nvidia driver to allow opengl 
@@ -42,4 +44,4 @@ RUN apt-get update \
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
-#ENV QT_X11_NO_MITSHM=1
+ENV QT_X11_NO_MITSHM=1

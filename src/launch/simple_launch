@@ -1,0 +1,12 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+
+def generate_launch_description():
+    return LaunchDescription([
+        Node(
+            package='spin_2',
+            namespace='spin_2_node',
+            executable='my_node',
+            name='spin_2_name'
+        )
+    ])

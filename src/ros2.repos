@@ -8,3 +8,8 @@ repositories:
     type: git
     url: https://github.com/ros2/examples.git
     version: humble
+  f1tenth_amr:
+    type: git
+    url: git@github.com:AndrewChen26/f1tenth_amr.git
+    version: main
+

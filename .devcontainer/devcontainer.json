@@ -40,7 +40,8 @@
 				"twxs.cmake",
 				"yzhang.markdown-all-in-one",
 				"zachflower.uncrustify",
-				"betwo.b2-catkin-tools"
+				"betwo.b2-catkin-tools",
+				"morningfrog.urdf-visualizer"
 			]
 		}
 	}

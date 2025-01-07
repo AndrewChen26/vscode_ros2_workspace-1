@@ -71,5 +71,8 @@
         ".vscode-insiders",
         ".devcontainer/devcontainer.json"
     ],
-    "ros.distro": "humble"
+    "ros.distro": "humble",
+    "cSpell.enabledFileTypes": {
+        "markdown": true
+    }
 }
